@@ -1,0 +1,138 @@
+/*=======================
+  Variables
+=======================*/
+
+// Colours
+$white: #F9FFFF;
+$lightgray: #F1F1F1;
+$gray: #BEC2C3;
+$cream: #FCFBE3;
+
+//Sizes
+$tileWidth: 220px;
+$tileHeight: 220px;
+
+/*=======================
+  Global Styles
+=======================*/
+
+* {
+  box-sizing: border-box;
+}
+
+
+/*=======================
+  Styles
+=======================*/
+
+// Background Styles
+.background {
+  position: fixed;
+  z-index: -100;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-240deg, #F45C67 1%, #F5845E 33%, #F6925B 50%, #F45B6E 100%);
+}
+
+// Tile Styles
+.tile-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: $tileWidth * 2;
+  height: $tileHeight * 2;
+  margin: 0;
+  box-shadow: 0px 0px 40px 4px rgba(203,80,80,0.59);
+  background: $white; // Fixes flicker between tiles in firefox
+}
+
+.tile {
+  position: absolute;
+  top: 0;
+  width: $tileWidth;
+  height: $tileHeight;
+  background: $white;
+  border: 1px solid $lightgray;
+  list-style: none;
+  text-align: center;
+  transition: .3s;
+  z-index: 0;
+}
+
+.tile:nth-of-type(1),
+.tile:nth-of-type(3) {
+  left: 0;
+}
+
+.tile:nth-of-type(2),
+.tile:nth-of-type(4) {
+  left: 220px;
+}
+
+// .tile:nth-of-type(3),
+// .tile:nth-of-type(6) {
+//   left: 440px;
+// }
+
+.tile:nth-of-type(3),
+.tile:nth-of-type(4) {
+  top: 220px;
+}
+
+.tile__inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 50px 0;
+  text-decoration: none;
+  color: $gray;
+}
+
+// Hover Styles
+.tile:not(.nohover):hover, .selected_video {
+  transform-origin: center;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 40px 1px rgba(244,106,104,0.48);
+  z-index: 10;
+}
+
+// New CSS, not from CodePen
+article {
+  display: none;
+}
+
+.description {
+  background: $cream;
+  padding: 3em;
+  padding-top: 1em;
+  overflow: hidden;
+}
+
+.description:hover {
+  overflow: scroll;
+}
+
+.selected_video {
+  background: $cream;
+}
+
+.nohover {
+  opacity: 0.4;
+}
+
+
+
+// Media queries
+// @media (max-width: 900px) {
+//   div.two_boxes {
+//     top: 750px;
+//     left: 50% !important;
+//     }
+//
+//   ul.two_boxes {
+//       top:250px;
+//       left: 50% !important;
+//       }
+//   }
